@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="./css/contact.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <div class="loader">
+        <img src="./img/gif/loader.gif" alt="loading...">
+    </div>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden";
+        });
+    </script>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <span>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="index.html">home</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="about.html">about</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="contact.html">contact</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="projects.html">projects</a>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="head">
+            <h1>Contact Me</h1>
+        </div>
+        <section class="form-section">
+            <center>
+                <form action="https://formspree.io/f/xvovlpdq" method="POST" id="form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder=" Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="email" name="email" placeholder=" Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder=" Message"></textarea>
+                    </div>
+                    <button type="submit" id="button">Send</button>
+                </form>
+            </center>
+            <div id="status"></div>
+        </section>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+      
+          // get the form elements defined in your form HTML above
+          
+          var form = document.getElementById("form");
+          var button = document.getElementById("button");
+          var status = document.getElementById("status");
+      
+          // Success and Error functions for after the form is submitted
+          
+          function success() {
+            form.reset();
+            status.innerHTML = alert("Thanks your response was submitted successfully");
+          }
+      
+          function error() {
+            status.innerHTML = alert("Oops! There was a problem.");
+          }
+      
+          // handle the form submission event
+      
+          form.addEventListener("submit", function(ev) {
+            ev.preventDefault();
+            var data = new FormData(form);
+            ajax(form.method, form.action, data, success, error);
+          });
+        });
+        
+        // helper function for sending an AJAX request
+      
+        function ajax(method, url, data, success, error) {
+          var xhr = new XMLHttpRequest();
+          xhr.open(method, url);
+          xhr.setRequestHeader("Accept", "application/json");
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+              success(xhr.response, xhr.responseType);
+            } else {
+              error(xhr.status, xhr.response, xhr.responseType);
+            }
+          };
+          xhr.send(data);
+        }
+      </script>
+    <div class="map" id='map'></div>
+    <script>
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2F2aW9uIiwiYSI6ImNrankzd2dyYjB5dGMydmxjcGs3dzZud2gifQ.azyKxRjzKws52Xq93GMduw';
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            center: [72.988423, 19.233944],
+            zoom: 8,
+            style: 'mapbox://styles/savion/ckjy4t3rj2fbp17nqezt9ts50'
+        });
+
+        var marker = mapboxgl.Marker()
+            .setLngLat([72.988423, 19.233944])
+            .addTo(map);
+
+    </script>
+</body>
+</html>

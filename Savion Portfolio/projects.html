@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/projects.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <div class="loader">
+        <img src="./img/gif/loader.gif" alt="loading...">
+    </div>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden";
+        });
+    </script>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>
+                    <span>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="index.html">home</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="about.html">about</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="contact.html">contact</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                    </span>
+                    <span>
+                        <a href="projects.html">projects</a>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            <div class="card">
+                <img src="./img/projects/qr-code-gen.png" alt="qr-code-gen">
+                <div class="info">
+                    <h1>Qr Code Generator</h1>
+                    <p>This web page generates qr code automatically asper your input text, link, etc...</p>
+                    <a href="qr-code-gen.html" class="btn" target="blank">Visit Site</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/projects/ide.png" alt="ide">
+                <div class="info">
+                    <h1>HTML IDE</h1>
+                    <p>This web page contains a html ide with auto save feature, etc...</p>
+                    <a href="ide.html" class="btn" target="blank">Visit Site</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/projects/calculator.png" alt="calculator">
+                <div class="info">
+                    <h1>Calculator</h1>
+                    <p>This web page has a calculator containing a vanilla tilt feature.</p>
+                    <a href="calculator.html" class="btn" target="blank">Visit Site</a>
+                </div>
+            </div>
+        </div>
+        <a class="see_more" href="https://github.com/Savion-N" target="blank">See More...</a>
+    </div>
+</body>
+</html>
